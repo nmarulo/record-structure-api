@@ -1,0 +1,53 @@
+###
+POST {{url}}/record-structure
+Content-Type: application/json
+
+{
+  "line": "001ABC123EJEMPLO DE REGISTRO    00000012345.6791031052025",
+  "recordFields": [
+    {
+      "id": "id_515b8b1f97b7",
+      "order": 4,
+      "length": 14,
+      "type": "DECIMAL",
+      "format": "FIXED_POINT_NUMBERS"
+    },
+    {
+      "id": "id_515b8b1f97b4",
+      "order": 1,
+      "length": 3,
+      "type": "INTEGER",
+      "format": "DEFAULT"
+    },
+    {
+      "id": "id_515b8b1f97b5",
+      "order": 2,
+      "length": 6,
+      "type": "STRING",
+      "format": "DEFAULT"
+    },
+    {
+      "id": "id_515b8b1f97b9",
+      "order": 6,
+      "length": 8,
+      "type": "DATE",
+      "format": "DDMMYYYY"
+    },
+    {
+      "id": "id_515b8b1f97b6",
+      "order": 3,
+      "length": 23,
+      "type": "STRING",
+      "format": "DEFAULT"
+    },
+    {
+      "id": "id_515b8b1f97b8",
+      "order": 5,
+      "length": 3,
+      "type": "DECIMAL",
+      "format": "DEFAULT"
+    }
+  ]
+}
+
+>> record-structure/response.json

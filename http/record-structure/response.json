@@ -1,0 +1,40 @@
+{
+  "structuredRecords": [
+    {
+      "id": "id_515b8b1f97b4",
+      "order": 1,
+      "value": 1,
+      "type": "INTEGER"
+    },
+    {
+      "id": "id_515b8b1f97b5",
+      "order": 2,
+      "value": "ABC123",
+      "type": "STRING"
+    },
+    {
+      "id": "id_515b8b1f97b6",
+      "order": 3,
+      "value": "EJEMPLO DE REGISTRO",
+      "type": "STRING"
+    },
+    {
+      "id": "id_515b8b1f97b7",
+      "order": 4,
+      "value": 12345.67,
+      "type": "DECIMAL"
+    },
+    {
+      "id": "id_515b8b1f97b8",
+      "order": 5,
+      "value": 9.1,
+      "type": "DECIMAL"
+    },
+    {
+      "id": "id_515b8b1f97b9",
+      "order": 6,
+      "value": "2025-05-31",
+      "type": "DATE"
+    }
+  ]
+}
