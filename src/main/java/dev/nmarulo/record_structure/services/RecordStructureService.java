@@ -1,5 +1,7 @@
 package dev.nmarulo.record_structure.services;
 
+import dev.nmarulo.record_structure.dto.FieldFormat;
+import dev.nmarulo.record_structure.dto.RecordField;
 import dev.nmarulo.record_structure.dto.RecordStructureReq;
 import dev.nmarulo.record_structure.dto.RecordStructureRes;
 import dev.nmarulo.record_structure.mapper.RecordStructureMapper;
@@ -23,7 +25,7 @@ public class RecordStructureService {
         final var line = recordStructureReq.getLine();
         final var structuredRecords = recordStructureReq.getRecordFields()
                                                         .stream()
-                                                        .sorted(Comparator.comparing(RecordStructureReq.RecordField::getOrder))
+                                                        .sorted(Comparator.comparing(RecordField::getOrder))
                                                         .map(recordField -> {
                                                             final var length = recordField.getLength();
                                                             final var value = line.substring(startPosition.get(),
@@ -40,7 +42,7 @@ public class RecordStructureService {
         return new RecordStructureRes(structuredRecords);
     }
     
-    private Object getValueFormat(RecordStructureReq.RecordField recordField, String value) {
+    private Object getValueFormat(RecordField recordField, String value) {
         final var type = recordField.getType();
         final var format = recordField.getFormat();
         
@@ -52,7 +54,7 @@ public class RecordStructureService {
         };
     }
     
-    private Double getDecimalFormat(RecordStructureReq.FieldFormat fieldFormat, String value) {
+    private Double getDecimalFormat(FieldFormat fieldFormat, String value) {
         return switch (fieldFormat) {
             case DEFAULT -> Integer.parseInt(value) / 100.0;
             case FIXED_POINT_NUMBERS -> Double.valueOf(value);
@@ -60,7 +62,7 @@ public class RecordStructureService {
         };
     }
     
-    private Object getDateFormat(RecordStructureReq.FieldFormat fieldFormat, String value) {
+    private Object getDateFormat(FieldFormat fieldFormat, String value) {
         return switch (fieldFormat) {
             case DDMMYYYY -> LocalDate.parse(value, DateTimeFormatter.ofPattern(fieldFormat.getFormat()));
             case HHMMSS -> LocalTime.parse(value, DateTimeFormatter.ofPattern(fieldFormat.getFormat()));
