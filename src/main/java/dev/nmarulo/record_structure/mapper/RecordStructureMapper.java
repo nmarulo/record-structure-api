@@ -1,6 +1,8 @@
 package dev.nmarulo.record_structure.mapper;
 
 import dev.nmarulo.record_structure.dto.RecordField;
+import dev.nmarulo.record_structure.dto.RecordStructureFileReq;
+import dev.nmarulo.record_structure.dto.RecordStructureReq;
 import dev.nmarulo.record_structure.dto.RecordStructureRes;
 import org.springframework.stereotype.Component;
 
@@ -15,6 +17,12 @@ public class RecordStructureMapper {
         structuredRecord.setType(recordField.getType());
         
         return structuredRecord;
+    }
+    
+    public RecordStructureReq convertToRecordStructureReq(String line, RecordStructureFileReq recordStructureFileReq) {
+        return new RecordStructureReq(line,
+                                      recordStructureFileReq.getLineIdentifier(),
+                                      recordStructureFileReq.getRecordFields());
     }
     
 }

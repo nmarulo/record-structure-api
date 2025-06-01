@@ -46,3 +46,52 @@ Content-Type: application/json
 }
 
 >> record-structure/response.json
+
+### Procesar un archivo, con un tipo de registro
+POST {{url}}/record-structure/file
+Content-Type: application/json
+
+{
+  "filePath": "record-structure-test.txt",
+  "lineIdentifier": "001",
+  "recordFields": [
+    {
+      "order": 4,
+      "length": 14,
+      "type": "DECIMAL",
+      "format": "FIXED_POINT_NUMBERS"
+    },
+    {
+      "order": 1,
+      "length": 3,
+      "type": "INTEGER",
+      "format": "DEFAULT"
+    },
+    {
+      "order": 2,
+      "length": 6,
+      "type": "STRING",
+      "format": "DEFAULT"
+    },
+    {
+      "order": 6,
+      "length": 8,
+      "type": "DATE",
+      "format": "DDMMYYYY"
+    },
+    {
+      "order": 3,
+      "length": 23,
+      "type": "STRING",
+      "format": "DEFAULT"
+    },
+    {
+      "order": 5,
+      "length": 3,
+      "type": "DECIMAL",
+      "format": "DEFAULT"
+    }
+  ]
+}
+
+>> record-structure/file-response.json

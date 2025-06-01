@@ -6,10 +6,14 @@ import dev.nmarulo.record_structure.mapper.RecordStructureMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
+import java.util.LinkedList;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
@@ -53,6 +57,40 @@ public class RecordStructureService {
                                                         .toList();
         
         return new RecordStructureRes(lineIdentifier, structuredRecords);
+    }
+    
+    public RecordStructureFileRes recordStructureFromFile(RecordStructureFileReq recordStructureFileReq) {
+        final var filePath = recordStructureFileReq.getFilePath();
+        final var path = Path.of(filePath);
+        final var file = path.toFile();
+        
+        if (!file.exists() || !file.isFile() || !file.canRead()) {
+            throw new BadRequestException("El archivo no existe o no se puede leer");
+        }
+        
+        final var recordStructures = new LinkedList<RecordStructureRes>();
+        
+        try (final var bufferedReader = Files.newBufferedReader(path)) {
+            var line = bufferedReader.readLine();
+            
+            while (line != null && !line.isBlank()) {
+                final var recordStructureReq = this.recordStructureMapper.convertToRecordStructureReq(line,
+                                                                                                      recordStructureFileReq);
+                line = bufferedReader.readLine();
+                
+                final var structuredRecords = recordStructure(recordStructureReq);
+                
+                if (structuredRecords.getLineIdentifier() == null) {
+                    continue;
+                }
+                
+                recordStructures.add(structuredRecords);
+            }
+        } catch (IOException e) {
+            throw new BadRequestException("Error al leer el archivo", e);
+        }
+        
+        return new RecordStructureFileRes(recordStructures);
     }
     
     private Object getValueFormat(RecordField recordField, String value) {

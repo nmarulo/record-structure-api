@@ -1,0 +1,424 @@
+{
+  "recordStructures": [
+    {
+      "lineIdentifier": "001",
+      "structuredRecords": [
+        {
+          "order": 1,
+          "value": 1,
+          "type": "INTEGER"
+        },
+        {
+          "order": 2,
+          "value": "ABC123",
+          "type": "STRING"
+        },
+        {
+          "order": 3,
+          "value": "DATOS DE CLIENTE",
+          "type": "STRING"
+        },
+        {
+          "order": 4,
+          "value": 98765.43,
+          "type": "DECIMAL"
+        },
+        {
+          "order": 5,
+          "value": 2.1,
+          "type": "DECIMAL"
+        },
+        {
+          "order": 6,
+          "value": "2025-01-02",
+          "type": "DATE"
+        }
+      ]
+    },
+    {
+      "lineIdentifier": "001",
+      "structuredRecords": [
+        {
+          "order": 1,
+          "value": 1,
+          "type": "INTEGER"
+        },
+        {
+          "order": 2,
+          "value": "MNO321",
+          "type": "STRING"
+        },
+        {
+          "order": 3,
+          "value": "DETALLE FACTURACION",
+          "type": "STRING"
+        },
+        {
+          "order": 4,
+          "value": 2345.67,
+          "type": "DECIMAL"
+        },
+        {
+          "order": 5,
+          "value": 8.9,
+          "type": "DECIMAL"
+        },
+        {
+          "order": 6,
+          "value": "2025-04-03",
+          "type": "DATE"
+        }
+      ]
+    },
+    {
+      "lineIdentifier": "001",
+      "structuredRecords": [
+        {
+          "order": 1,
+          "value": 1,
+          "type": "INTEGER"
+        },
+        {
+          "order": 2,
+          "value": "VWX789",
+          "type": "STRING"
+        },
+        {
+          "order": 3,
+          "value": "GESTION DE USUARIOS",
+          "type": "STRING"
+        },
+        {
+          "order": 4,
+          "value": 1111.22,
+          "type": "DECIMAL"
+        },
+        {
+          "order": 5,
+          "value": 2.2,
+          "type": "DECIMAL"
+        },
+        {
+          "order": 6,
+          "value": "2025-09-04",
+          "type": "DATE"
+        }
+      ]
+    },
+    {
+      "lineIdentifier": "001",
+      "structuredRecords": [
+        {
+          "order": 1,
+          "value": 1,
+          "type": "INTEGER"
+        },
+        {
+          "order": 2,
+          "value": "HIJ456",
+          "type": "STRING"
+        },
+        {
+          "order": 3,
+          "value": "VALIDACION DATOS",
+          "type": "STRING"
+        },
+        {
+          "order": 4,
+          "value": 3333.11,
+          "type": "DECIMAL"
+        },
+        {
+          "order": 5,
+          "value": 1.1,
+          "type": "DECIMAL"
+        },
+        {
+          "order": 6,
+          "value": "2025-03-23",
+          "type": "DATE"
+        }
+      ]
+    },
+    {
+      "lineIdentifier": "001",
+      "structuredRecords": [
+        {
+          "order": 1,
+          "value": 1,
+          "type": "INTEGER"
+        },
+        {
+          "order": 2,
+          "value": "TUV123",
+          "type": "STRING"
+        },
+        {
+          "order": 3,
+          "value": "SEGURIDAD ACCESO",
+          "type": "STRING"
+        },
+        {
+          "order": 4,
+          "value": 8888.11,
+          "type": "DECIMAL"
+        },
+        {
+          "order": 5,
+          "value": 1.1,
+          "type": "DECIMAL"
+        },
+        {
+          "order": 6,
+          "value": "2025-01-27",
+          "type": "DATE"
+        }
+      ]
+    },
+    {
+      "lineIdentifier": "001",
+      "structuredRecords": [
+        {
+          "order": 1,
+          "value": 1,
+          "type": "INTEGER"
+        },
+        {
+          "order": 2,
+          "value": "IJK456",
+          "type": "STRING"
+        },
+        {
+          "order": 3,
+          "value": "VALIDACION FORMATO",
+          "type": "STRING"
+        },
+        {
+          "order": 4,
+          "value": 6666.11,
+          "type": "DECIMAL"
+        },
+        {
+          "order": 5,
+          "value": 1.1,
+          "type": "DECIMAL"
+        },
+        {
+          "order": 6,
+          "value": "2025-02-12",
+          "type": "DATE"
+        }
+      ]
+    },
+    {
+      "lineIdentifier": "001",
+      "structuredRecords": [
+        {
+          "order": 1,
+          "value": 1,
+          "type": "INTEGER"
+        },
+        {
+          "order": 2,
+          "value": "XYZ789",
+          "type": "STRING"
+        },
+        {
+          "order": 3,
+          "value": "AUTENTICACION USER",
+          "type": "STRING"
+        },
+        {
+          "order": 4,
+          "value": 1111.77,
+          "type": "DECIMAL"
+        },
+        {
+          "order": 5,
+          "value": 7.7,
+          "type": "DECIMAL"
+        },
+        {
+          "order": 6,
+          "value": "2025-04-07",
+          "type": "DATE"
+        }
+      ]
+    },
+    {
+      "lineIdentifier": "001",
+      "structuredRecords": [
+        {
+          "order": 1,
+          "value": 1,
+          "type": "INTEGER"
+        },
+        {
+          "order": 2,
+          "value": "MNO123",
+          "type": "STRING"
+        },
+        {
+          "order": 3,
+          "value": "LIMPIEZA TEMPORAL",
+          "type": "STRING"
+        },
+        {
+          "order": 4,
+          "value": 9999.55,
+          "type": "DECIMAL"
+        },
+        {
+          "order": 5,
+          "value": 5.5,
+          "type": "DECIMAL"
+        },
+        {
+          "order": 6,
+          "value": "2025-06-02",
+          "type": "DATE"
+        }
+      ]
+    },
+    {
+      "lineIdentifier": "001",
+      "structuredRecords": [
+        {
+          "order": 1,
+          "value": 1,
+          "type": "INTEGER"
+        },
+        {
+          "order": 2,
+          "value": "YZA789",
+          "type": "STRING"
+        },
+        {
+          "order": 3,
+          "value": "PARTITION DINAMICA",
+          "type": "STRING"
+        },
+        {
+          "order": 4,
+          "value": 1111.88,
+          "type": "DECIMAL"
+        },
+        {
+          "order": 5,
+          "value": 8.8,
+          "type": "DECIMAL"
+        },
+        {
+          "order": 6,
+          "value": "2025-07-16",
+          "type": "DATE"
+        }
+      ]
+    },
+    {
+      "lineIdentifier": "001",
+      "structuredRecords": [
+        {
+          "order": 1,
+          "value": 1,
+          "type": "INTEGER"
+        },
+        {
+          "order": 2,
+          "value": "KLM456",
+          "type": "STRING"
+        },
+        {
+          "order": 3,
+          "value": "CACHE INVALIDACION",
+          "type": "STRING"
+        },
+        {
+          "order": 4,
+          "value": 6666.33,
+          "type": "DECIMAL"
+        },
+        {
+          "order": 5,
+          "value": 3.3,
+          "type": "DECIMAL"
+        },
+        {
+          "order": 6,
+          "value": "2025-08-29",
+          "type": "DATE"
+        }
+      ]
+    },
+    {
+      "lineIdentifier": "001",
+      "structuredRecords": [
+        {
+          "order": 1,
+          "value": 1,
+          "type": "INTEGER"
+        },
+        {
+          "order": 2,
+          "value": "ZAB789",
+          "type": "STRING"
+        },
+        {
+          "order": 3,
+          "value": "STREAM PROCESSING",
+          "type": "STRING"
+        },
+        {
+          "order": 4,
+          "value": 1111.11,
+          "type": "DECIMAL"
+        },
+        {
+          "order": 5,
+          "value": 1.1,
+          "type": "DECIMAL"
+        },
+        {
+          "order": 6,
+          "value": "2025-10-23",
+          "type": "DATE"
+        }
+      ]
+    },
+    {
+      "lineIdentifier": "001",
+      "structuredRecords": [
+        {
+          "order": 1,
+          "value": 1,
+          "type": "INTEGER"
+        },
+        {
+          "order": 2,
+          "value": "OPQ123",
+          "type": "STRING"
+        },
+        {
+          "order": 3,
+          "value": "VIEW MATERIALIZED",
+          "type": "STRING"
+        },
+        {
+          "order": 4,
+          "value": 9999.88,
+          "type": "DECIMAL"
+        },
+        {
+          "order": 5,
+          "value": 8.8,
+          "type": "DECIMAL"
+        },
+        {
+          "order": 6,
+          "value": "2025-12-17",
+          "type": "DATE"
+        }
+      ]
+    }
+  ]
+}

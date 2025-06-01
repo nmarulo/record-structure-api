@@ -1,20 +1,13 @@
 package dev.nmarulo.record_structure.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class RecordStructureReq {
+public class RecordStructureFileReq {
     
-    /**
-     * Linea del archivo.
-     */
-    private String line;
+    private String filePath;
     
     /**
      * Identificador (prefijo) de la línea.
