@@ -23,8 +23,14 @@ public class RecordStructureService {
     public RecordStructureRes recordStructure(RecordStructureReq recordStructureReq) {
         final var startPosition = new AtomicInteger(0);
         final var line = recordStructureReq.getLine();
+        
+        if (line == null || line.isBlank()) {
+            throw new IllegalArgumentException("La linea no puede estar vaciá");
+        }
+        
         final var structuredRecords = recordStructureReq.getRecordFields()
                                                         .stream()
+                                                        .filter(value -> line.startsWith(value.getId()))
                                                         .sorted(Comparator.comparing(RecordField::getOrder))
                                                         .map(recordField -> {
                                                             final var length = recordField.getLength();
