@@ -11,15 +11,15 @@ import java.util.List;
 @NoArgsConstructor
 public class RecordStructureRes {
     
+    /**
+     * Identificador (prefijo) de la línea.
+     */
+    private String lineIdentifier;
+    
     private List<StructuredRecord> structuredRecords;
     
     @Data
     public static class StructuredRecord {
-        
-        /**
-         * Identificador del registro.
-         */
-        private String id;
         
         private Integer order;
         

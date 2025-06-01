@@ -12,6 +12,11 @@ public class RecordStructureReq {
      */
     private String line;
     
+    /**
+     * Identificador (prefijo) de la línea.
+     */
+    private String lineIdentifier;
+    
     private List<RecordField> recordFields;
     
 }

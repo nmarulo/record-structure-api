@@ -1,9 +1,7 @@
 package dev.nmarulo.record_structure.services;
 
-import dev.nmarulo.record_structure.dto.FieldFormat;
-import dev.nmarulo.record_structure.dto.RecordField;
-import dev.nmarulo.record_structure.dto.RecordStructureReq;
-import dev.nmarulo.record_structure.dto.RecordStructureRes;
+import dev.nmarulo.record_structure.dto.*;
+import dev.nmarulo.record_structure.exception.BadRequestException;
 import dev.nmarulo.record_structure.mapper.RecordStructureMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -25,12 +23,21 @@ public class RecordStructureService {
         final var line = recordStructureReq.getLine();
         
         if (line == null || line.isBlank()) {
-            throw new IllegalArgumentException("La linea no puede estar vaciá");
+            throw new BadRequestException("La linea no puede estar vaciá");
+        }
+        
+        final var lineIdentifier = recordStructureReq.getLineIdentifier();
+        
+        if (lineIdentifier == null || lineIdentifier.isBlank()) {
+            throw new BadRequestException("El identificador de la linea no puede estar vaciá");
+        }
+        
+        if (!line.startsWith(lineIdentifier)) {
+            return new RecordStructureRes();
         }
         
         final var structuredRecords = recordStructureReq.getRecordFields()
                                                         .stream()
-                                                        .filter(value -> line.startsWith(value.getId()))
                                                         .sorted(Comparator.comparing(RecordField::getOrder))
                                                         .map(recordField -> {
                                                             final var length = recordField.getLength();
@@ -45,7 +52,7 @@ public class RecordStructureService {
                                                         })
                                                         .toList();
         
-        return new RecordStructureRes(structuredRecords);
+        return new RecordStructureRes(lineIdentifier, structuredRecords);
     }
     
     private Object getValueFormat(RecordField recordField, String value) {

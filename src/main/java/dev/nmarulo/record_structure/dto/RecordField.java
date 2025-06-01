@@ -8,11 +8,6 @@ import lombok.Data;
 @Data
 public class RecordField {
     
-    /**
-     * Identificador del campo.
-     */
-    private String id;
-    
     private Integer order;
     
     /**
