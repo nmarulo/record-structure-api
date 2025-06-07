@@ -1,0 +1,18 @@
+{
+  "java": {
+    "version": "21.0.4",
+    "vendor": {
+      "name": "Eclipse Adoptium",
+      "version": "Temurin-21.0.4+7"
+    },
+    "runtime": {
+      "name": "OpenJDK Runtime Environment",
+      "version": "21.0.4+7-LTS"
+    },
+    "jvm": {
+      "name": "OpenJDK 64-Bit Server VM",
+      "vendor": "Eclipse Adoptium",
+      "version": "21.0.4+7-LTS"
+    }
+  }
+}

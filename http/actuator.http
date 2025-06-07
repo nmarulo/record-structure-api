@@ -1,0 +1,9 @@
+### Actuator health
+GET {{url}}/actuator/health
+
+>> actuator/health-response.json
+
+### Actuator info
+GET {{url}}/actuator/info
+
+>> actuator/info-response.json
