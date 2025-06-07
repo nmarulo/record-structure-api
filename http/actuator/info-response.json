@@ -1,4 +1,11 @@
 {
+  "build": {
+    "artifact": "record-structure-api",
+    "name": "record-structure-api",
+    "time": 1749337293.844000000,
+    "version": "0.0.1",
+    "group": "dev.nmarulo"
+  },
   "java": {
     "version": "21.0.4",
     "vendor": {
