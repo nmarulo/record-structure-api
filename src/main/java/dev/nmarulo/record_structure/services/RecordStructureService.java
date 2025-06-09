@@ -2,10 +2,12 @@ package dev.nmarulo.record_structure.services;
 
 import dev.nmarulo.record_structure.dto.*;
 import dev.nmarulo.record_structure.exception.BadRequestException;
+import dev.nmarulo.record_structure.exception.InternalServerErrorException;
 import dev.nmarulo.record_structure.mapper.RecordStructureMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -15,6 +17,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -119,6 +122,54 @@ public class RecordStructureService {
             case HHMMSS -> LocalTime.parse(value, DateTimeFormatter.ofPattern(fieldFormat.getFormat()));
             default -> throw new IllegalStateException("Unexpected value: " + fieldFormat.getFormat());
         };
+    }
+    
+    public GenerateCsvRecordStructureRes generateCsvFromFile(GenerateCsvRecordStructureReq request) {
+        final var recordStructureFileRes = recordStructureFromFile(request);
+        final var recordStructures = recordStructureFileRes.getRecordStructures();
+        
+        if (recordStructures.isEmpty()) {
+            throw new BadRequestException("No se encontraron registros para generar el CSV");
+        }
+        
+        final var filePath = request.getFilePath();
+        final var csvFilePath = filePath.substring(0, filePath.lastIndexOf('.')) + ".csv";
+        final var csvPath = Path.of(csvFilePath);
+        
+        try (final var writer = Files.newBufferedWriter(csvPath)) {
+            writeHeader(writer, recordStructures.getFirst());
+            
+            for (final var recordStructure : recordStructures) {
+                writeRecord(writer, recordStructure);
+            }
+        } catch (IOException e) {
+            throw new InternalServerErrorException("Error al generar el archivo CSV", e);
+        }
+        
+        return new GenerateCsvRecordStructureRes(csvFilePath);
+    }
+    
+    private void writeHeader(BufferedWriter writer, RecordStructureRes recordStructure) throws IOException {
+        final var columnNames = recordStructure.getStructuredRecords()
+                                               .stream()
+                                               .sorted(Comparator.comparing(RecordStructureRes.StructuredRecord::getOrder))
+                                               .map(RecordStructureRes.StructuredRecord::getColumnName)
+                                               .collect(Collectors.joining(";"));
+        
+        writer.write(columnNames);
+        writer.newLine();
+    }
+    
+    private void writeRecord(BufferedWriter writer, RecordStructureRes recordStructure) throws IOException {
+        final var values = recordStructure.getStructuredRecords()
+                                          .stream()
+                                          .sorted(Comparator.comparing(RecordStructureRes.StructuredRecord::getOrder))
+                                          .map(RecordStructureRes.StructuredRecord::getValue)
+                                          .map(String::valueOf)
+                                          .collect(Collectors.joining(";"));
+        
+        writer.write(values);
+        writer.newLine();
     }
     
 }

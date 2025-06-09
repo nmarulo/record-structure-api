@@ -1,9 +1,6 @@
 package dev.nmarulo.record_structure.controllers;
 
-import dev.nmarulo.record_structure.dto.RecordStructureFileReq;
-import dev.nmarulo.record_structure.dto.RecordStructureFileRes;
-import dev.nmarulo.record_structure.dto.RecordStructureReq;
-import dev.nmarulo.record_structure.dto.RecordStructureRes;
+import dev.nmarulo.record_structure.dto.*;
 import dev.nmarulo.record_structure.services.RecordStructureService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +24,11 @@ public class RecordStructureController {
     @PostMapping("/file")
     public ResponseEntity<RecordStructureFileRes> recordStructureFromFile(@RequestBody RecordStructureFileReq recordStructureReq) {
         return ResponseEntity.ok(this.recordStructureService.recordStructureFromFile(recordStructureReq));
+    }
+    
+    @PostMapping("/generate-csv")
+    public ResponseEntity<GenerateCsvRecordStructureRes> generateCsvFromFile(@RequestBody GenerateCsvRecordStructureReq request) {
+        return ResponseEntity.ok(this.recordStructureService.generateCsvFromFile(request));
     }
     
 }
