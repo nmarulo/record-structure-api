@@ -15,6 +15,7 @@ public class RecordStructureMapper {
         structuredRecord.setOrder(recordField.getOrder());
         structuredRecord.setValue(valueRes);
         structuredRecord.setType(recordField.getType());
+        structuredRecord.setColumnName(recordField.getColumnName());
         
         return structuredRecord;
     }

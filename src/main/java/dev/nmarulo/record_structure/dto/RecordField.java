@@ -19,4 +19,6 @@ public class RecordField {
     
     private FieldFormat format;
     
+    private String columnName;
+    
 }

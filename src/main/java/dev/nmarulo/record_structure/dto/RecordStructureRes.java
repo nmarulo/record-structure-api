@@ -30,6 +30,8 @@ public class RecordStructureRes {
         
         private FieldType type;
         
+        private String columnName;
+        
     }
     
 }
