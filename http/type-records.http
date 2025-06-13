@@ -1,0 +1,42 @@
+### TypeRecord API
+
+### Get all type records
+GET http://localhost:8080/type-records
+Accept: application/json
+
+>> type-records/get-type-records.json
+
+### Get type record by ID
+GET http://localhost:8080/type-records/1
+Accept: application/json
+
+>> type-records/get-type-records-id.json
+
+### Create new type record
+POST http://localhost:8080/type-records
+Content-Type: application/json
+
+{
+  "name": "Test Type Record",
+  "lineIdentifier": "TEST",
+  "lengths": "10,20,30",
+  "columns": "col1,col2,col3"
+}
+
+>> type-records/post-type-records.json
+
+### Update type record
+PUT http://localhost:8080/type-records/1
+Content-Type: application/json
+
+{
+  "name": "Updated Type Record",
+  "lineIdentifier": "TEST",
+  "lengths": "10,20,30",
+  "columns": "col1,col2,col3"
+}
+
+>> type-records/put-type-records.json
+
+### Delete type record
+DELETE http://localhost:8080/type-records/1

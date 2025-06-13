@@ -1,0 +1,11 @@
+{
+  "typeRecords": [
+    {
+      "id": 1,
+      "name": "Updated Type Record",
+      "lineIdentifier": "TEST",
+      "lengths": "10,20,30",
+      "columns": "col1,col2,col3"
+    }
+  ]
+}
