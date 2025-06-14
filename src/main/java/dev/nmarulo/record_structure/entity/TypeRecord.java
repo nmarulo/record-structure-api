@@ -34,7 +34,7 @@ public class TypeRecord {
     private String columns;
     
     @ToString.Exclude
-    @OneToMany(mappedBy = "typeRecord", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "typeRecord", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<FieldTypeRecord> fieldTypeRecords = new HashSet<>();
     
     public void addFieldTypeRecord(FieldTypeRecord fieldTypeRecord) {
