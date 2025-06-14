@@ -22,13 +22,16 @@ public class FieldTypeRecord {
     @Column(name = "column_name", nullable = false)
     private String columnName;
     
-    @Column(name = "order_num", nullable = false)
+    @Column(name = "order", nullable = false)
     private Integer order;
     
+    @Column(name = "length", nullable = false)
     private Integer length;
     
+    @Column(name = "type", nullable = false)
     private String type;
     
+    @Column(name = "format", nullable = false)
     private String format;
     
     @ToString.Exclude

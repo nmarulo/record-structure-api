@@ -21,14 +21,16 @@ public class TypeRecord {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Column(nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
     
-    @Column(name = "line_identifier")
+    @Column(name = "line_identifier", nullable = false)
     private String lineIdentifier;
     
+    @Column(name = "lengths", nullable = false)
     private String lengths;
     
+    @Column(name = "columns", nullable = false)
     private String columns;
     
     @ToString.Exclude
