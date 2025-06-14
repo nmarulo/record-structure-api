@@ -37,6 +37,11 @@ public class TypeRecord {
     @OneToMany(mappedBy = "typeRecord", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<FieldTypeRecord> fieldTypeRecords = new HashSet<>();
     
+    public void addFieldTypeRecord(FieldTypeRecord fieldTypeRecord) {
+        fieldTypeRecords.add(fieldTypeRecord);
+        fieldTypeRecord.setTypeRecord(this);
+    }
+    
     @Override
     public final boolean equals(Object o) {
         if (this == o) {return true;}

@@ -22,17 +22,19 @@ public class FieldTypeRecord {
     @Column(name = "column_name", nullable = false)
     private String columnName;
     
-    @Column(name = "order", nullable = false)
+    @Column(name = "order_number", nullable = false)
     private Integer order;
     
     @Column(name = "length", nullable = false)
     private Integer length;
     
+    @Enumerated(EnumType.STRING)
     @Column(name = "type", nullable = false)
-    private String type;
+    private FieldType type;
     
+    @Enumerated(EnumType.STRING)
     @Column(name = "format", nullable = false)
-    private String format;
+    private FieldFormat format;
     
     @ToString.Exclude
     @ManyToOne(fetch = FetchType.LAZY)
@@ -59,6 +61,28 @@ public class FieldTypeRecord {
         return this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer()
                                                                        .getPersistentClass()
                                                                        .hashCode() : getClass().hashCode();
+    }
+    
+    public enum FieldType {
+        STRING,
+        INTEGER,
+        DECIMAL,
+        DATE
+    }
+    
+    @Getter
+    public enum FieldFormat {
+        DDMMYYYY("ddMMyyyy"),
+        HHMMSS("HHmmss"),
+        FIXED_POINT_NUMBERS("0.00"),
+        DEFAULT("");
+        
+        private final String format;
+        
+        FieldFormat(String format) {
+            this.format = format;
+        }
+        
     }
     
 }
