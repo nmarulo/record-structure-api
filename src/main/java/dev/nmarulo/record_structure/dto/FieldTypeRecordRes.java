@@ -4,23 +4,21 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TypeRecordRes {
+public class FieldTypeRecordRes {
     
     private Long id;
     
-    private String name;
+    private String columnName;
     
-    private String lineIdentifier;
+    private Integer order;
     
-    private String lengths;
+    private Integer length;
     
-    private String columns;
+    private String type;
     
-    private List<FieldTypeRecordRes> fieldTypeRecords;
+    private String format;
     
 }
