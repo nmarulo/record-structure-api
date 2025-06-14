@@ -2,10 +2,36 @@
   "typeRecords": [
     {
       "id": 1,
-      "name": "Updated Type Record",
+      "name": "Test Type Record",
       "lineIdentifier": "TEST",
       "lengths": "10,20,30",
-      "columns": "col1,col2,col3"
+      "columns": "col1,col2,col3",
+      "fieldTypeRecords": [
+        {
+          "id": 1,
+          "columnName": "col1",
+          "order": 0,
+          "length": 10,
+          "type": "STRING",
+          "format": "DEFAULT"
+        },
+        {
+          "id": 2,
+          "columnName": "col2",
+          "order": 1,
+          "length": 20,
+          "type": "STRING",
+          "format": "DEFAULT"
+        },
+        {
+          "id": 3,
+          "columnName": "col3",
+          "order": 2,
+          "length": 30,
+          "type": "STRING",
+          "format": "DEFAULT"
+        }
+      ]
     }
   ]
 }
