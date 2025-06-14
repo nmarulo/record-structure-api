@@ -1,12 +1,12 @@
 {
-  "id": 2,
+  "id": 1,
   "name": "Test Type Record",
   "lineIdentifier": "TEST",
   "lengths": "10,20,30",
   "columns": "col1,col2,col3",
   "fieldTypeRecords": [
     {
-      "id": 4,
+      "id": 1,
       "columnName": "col1",
       "order": 0,
       "length": 10,
@@ -14,7 +14,7 @@
       "format": "DEFAULT"
     },
     {
-      "id": 5,
+      "id": 2,
       "columnName": "col2",
       "order": 1,
       "length": 20,
@@ -22,7 +22,7 @@
       "format": "DEFAULT"
     },
     {
-      "id": 6,
+      "id": 3,
       "columnName": "col3",
       "order": 2,
       "length": 30,

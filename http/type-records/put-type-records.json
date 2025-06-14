@@ -3,5 +3,31 @@
   "name": "Updated Type Record",
   "lineIdentifier": "TEST",
   "lengths": "10,20,30",
-  "columns": "col1,col2,col3"
+  "columns": "col1,col2,col3",
+  "fieldTypeRecords": [
+    {
+      "id": 4,
+      "columnName": "col1",
+      "order": 0,
+      "length": 10,
+      "type": "STRING",
+      "format": "DEFAULT"
+    },
+    {
+      "id": 5,
+      "columnName": "col2",
+      "order": 1,
+      "length": 20,
+      "type": "STRING",
+      "format": "DEFAULT"
+    },
+    {
+      "id": 6,
+      "columnName": "col3",
+      "order": 2,
+      "length": 30,
+      "type": "STRING",
+      "format": "DEFAULT"
+    }
+  ]
 }
