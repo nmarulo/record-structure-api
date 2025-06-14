@@ -1,0 +1,20 @@
+package dev.nmarulo.record_structure.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class UpdateTypeRecordReq {
+    
+    private String name;
+    
+    private String lineIdentifier;
+    
+    private String lengths;
+    
+    private String columns;
+    
+}
