@@ -1,5 +1,6 @@
 package dev.nmarulo.record_structure.services;
 
+import dev.nmarulo.record_structure.common.FileUtils;
 import dev.nmarulo.record_structure.dto.*;
 import dev.nmarulo.record_structure.exception.BadRequestException;
 import dev.nmarulo.record_structure.exception.InternalServerErrorException;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDate;
@@ -24,6 +26,8 @@ import java.util.stream.Collectors;
 public class RecordStructureService {
     
     private final RecordStructureMapper recordStructureMapper;
+    
+    private final FileUtils fileUtils;
     
     public RecordStructureRes recordStructure(RecordStructureReq recordStructureReq) {
         final var startPosition = new AtomicInteger(0);
@@ -71,9 +75,12 @@ public class RecordStructureService {
             throw new BadRequestException("El archivo no existe o no se puede leer");
         }
         
+        final Charset charset = this.fileUtils.charsetDetect(path)
+                                              .orElseThrow(() -> new BadRequestException(
+                                                  "No se logro detectar la codificación del archivo"));
         final var recordStructures = new LinkedList<RecordStructureRes>();
         
-        try (final var bufferedReader = Files.newBufferedReader(path)) {
+        try (final var bufferedReader = Files.newBufferedReader(path, charset)) {
             var line = bufferedReader.readLine();
             
             while (line != null && !line.isBlank()) {
